@@ -21,14 +21,10 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
-from construct import *
-
 try:
-    from shared_structures.windows.misc import NTFSFILETIME
-    from general import MFTFileAttributeFlags
+    from shared_structures.windows.misc import *
 except ImportError:
-    from .shared_structures.windows.misc import NTFSFILETIME
-    from .general import MFTFileAttributeFlags
+    from .shared_structures.windows.misc import *
 
 '''
 MFTStandardInformationAttribute
@@ -38,7 +34,7 @@ MFTStandardInformationAttribute = Struct(
     'RawLastModifiedTime'   / NTFSFILETIME,
     'RawEntryModifiedTime'  / NTFSFILETIME,
     'RawLastAccessTime'     / NTFSFILETIME,
-    'FileAttributeFlags'    / MFTFileAttributeFlags,
+    'FileAttributeFlags'    / NTFSFileAttributeFlags,
     'MaximumVersions'       / Int32ul,
     'VersionNumber'         / Int32ul,
     'ClassIdentifier'       / Int32ul,
