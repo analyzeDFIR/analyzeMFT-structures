@@ -21,14 +21,10 @@
 ## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ## SOFTWARE.
 
-from construct import *
-
 try:
-    from shared_structures.windows.misc import NTFSFileReference, NTFSFILETIME 
-    from general import MFTFileAttributeFlags
+    from shared_structures.windows.misc import *
 except ImportError:
-    from .shared_structures.windows.misc import NTFSFileReference, NTFSFILETIME 
-    from .general import MFTFileAttributeFlags
+    from .shared_structures.windows.misc import *
 
 '''
 MFTFileNameAttribute
@@ -41,7 +37,7 @@ MFTFileNameAttribute = Struct(
     'RawLastAccessTime'     / NTFSFILETIME,
     'AllocatedFileSize'     / Int64ul,
     'FileSize'              / Int64ul,
-    'FileAttributeFlags'    / MFTFileAttributeFlags,
+    'FileAttributeFlags'    / NTFSFileAttributeFlags,
     'ExtendedData'          / Int32ul,
     'FileNameLength'        / Int8ul,
     'FileNameNamespace'     / Int8ul
